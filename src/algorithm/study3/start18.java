@@ -2,6 +2,8 @@ package algorithm.study3;
 
 import java.util.Scanner;
 
+//https://www.acmicpc.net/problem/10993
+
 public class start18 {
     public static String[][] map;
     public static int level, width;
@@ -29,27 +31,29 @@ public class start18 {
         int level = (int) Math.pow(2, num) - 1;
         int width = (int) Math.pow(2, num+1) - 3;
         int n_width = (int) Math.pow(2, num) - 3;
-
+        System.out.println("nx : " + nx + " ny : " + ny);
         if(num % 2 == 1) {
             oddStar(num, nx, ny);
         }else {
             evenStar(num, nx, ny);
         }
-
-        branch(num-1, level / 2, (width-n_width) / 2);
+//        System.out.println("nx : " + level / 2 + " ny : " + (width-n_width) / 2);
+        branch(num-1, level / 2, ny + (width-n_width) / 2);
     }
     public static void oddStar(int num, int nx, int ny) {
         int level = (int) Math.pow(2, num) - 1;
         int width = (int) Math.pow(2, num+1) - 3;
 
-        for(int i = nx; i < nx + level; i++) {
-            for(int j = ny; j <= ny + (width/2)+i; j++) {
-                if(j == ny + (width/2) - i || j == ny + (width/2) + i || i == level - 1) {
-                    map[i][j] = "*";
-                }else {
-                    map[i][j] = " ";
-                }
+        int idx = 0;
+
+        for(int i = level; i > nx - level; i--) {
+            for(int j = ny; j < ny + width; j++) {
+                if(i == level) map[i][j] = "*";
+                else if(j == ny + idx) map[i][j] = "*";
+                else if(j == ny + width - idx - 1) map[i][j] = "*";
+                else map[i][j] = " ";
             }
+            idx++;
         }
     }
 
@@ -57,14 +61,19 @@ public class start18 {
         int level = (int) Math.pow(2, num) - 1;
         int width = (int) Math.pow(2, num+1) - 3;
 
+        int idx = 0;
+
         for(int i = nx; i < nx + level; i++) {
-            for(int j = ny; j <= ny + width - i; j++) {
-                if(j == j + i || j == ny + width - i || i == nx) {
-                    map[i][j] = "*";
-                }else {
-                    map[i][j] = " ";
-                }
+            for(int j = ny; j < ny + width; j++) {
+
+                if(i == nx) map[i][j] = "*";
+                else if(j == ny + idx)  map[i][j] = "*";
+                else if(j == width - 1) map[i][j] = "*";
+                else map[i][j] = " ";
+
             }
+            width--;
+            idx++;
         }
     }
 }
