@@ -19,7 +19,7 @@ public class hoimoon_1 {
         StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(br.readLine());
 
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             String str = br.readLine();
 
             int left = 0;
@@ -27,24 +27,24 @@ public class hoimoon_1 {
             int status = 0;
 
             int len = str.length();
-            int cnt = str.length()/2;
+            int cnt = str.length() / 2;
 
-            for(int j = 0; j < cnt; j++) {
-                if(status == 2) break;
-                if(status == 1) {
+            for (int j = 0; j < cnt; j++) {
+                if (status == 2) break;
+                if (status == 1) {
                     boolean isOk = false;
-                    if((left != 0 && str.charAt(j+left) == str.charAt(len-j-1))
-                    || (right != 0 && str.charAt(j) == str.charAt(len-j-1-right))) isOk = true;
+                    if ((left != 0 && str.charAt(j + left) == str.charAt(len - j - 1))
+                            || (right != 0 && str.charAt(j) == str.charAt(len - j - 1 - right))) isOk = true;
 
-                    if(!isOk) {
+                    if (!isOk) {
                         status++;
                         break;
                     }
-                }else {
-                    if(str.charAt(j+left) != str.charAt(len-1-j-right)){
+                } else {
+                    if (str.charAt(j + left) != str.charAt(len - 1 - j - right)) {
                         status++;
-                        if(str.charAt(j+left) == str.charAt(len-j-1-right)) left++;
-                        if(str.charAt(j) == str.charAt(len-j-2)) right++;
+                        if (str.charAt(j + left) == str.charAt(len - j - 1 - right)) left++;
+                        if (str.charAt(j) == str.charAt(len - j - 2)) right++;
                         j--;
                     }
                 }

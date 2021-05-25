@@ -16,49 +16,50 @@ import java.util.StringTokenizer;
 //https://www.acmicpc.net/problem/10971
 
 public class 외판원순회2_1 {
-	public static int N, min = Integer.MAX_VALUE;
-	public static int[][] map;
-	public static boolean[] visit;
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		N = Integer.parseInt(br.readLine());
-		
-		map = new int[N][N];
-		visit = new boolean[N];
-		
-		for(int i = 0; i < N; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			for (int j = 0; j < N; j++) {
-				map[i][j] =  Integer.parseInt(st.nextToken());
-			}
-		}
-		
-		for(int i = 0; i < N; i++) {
-			dfs(i, i, 0, 0);
-		}
-		
-		System.out.println(Integer.toString(min));
-	}
-	
-	public static void dfs(int start, int i, int cnt, int sum) {
-		if(cnt == N && start == i) {
-			min = Math.min(min, sum);
-			return;
-		}
-		
-		for(int idx = 0; idx < N; idx++) {
-			if(map[i][idx] == 0) continue;
-			
-			if(!visit[i] && map[i][idx] > 0) {
-				visit[i] = true;
-				sum += map[i][idx];
-				System.out.print(map[i][idx] + " ");
-				dfs(start, idx, cnt+1, sum);
-				visit[i] = false;
-				sum -= map[i][idx];
-			}
-		}
-		System.out.println();
-	}
+    public static int N, min = Integer.MAX_VALUE;
+    public static int[][] map;
+    public static boolean[] visit;
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        N = Integer.parseInt(br.readLine());
+
+        map = new int[N][N];
+        visit = new boolean[N];
+
+        for (int i = 0; i < N; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            for (int j = 0; j < N; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
+            }
+        }
+
+        for (int i = 0; i < N; i++) {
+            dfs(i, i, 0, 0);
+        }
+
+        System.out.println(Integer.toString(min));
+    }
+
+    public static void dfs(int start, int i, int cnt, int sum) {
+        if (cnt == N && start == i) {
+            min = Math.min(min, sum);
+            return;
+        }
+
+        for (int idx = 0; idx < N; idx++) {
+            if (map[i][idx] == 0) continue;
+
+            if (!visit[i] && map[i][idx] > 0) {
+                visit[i] = true;
+                sum += map[i][idx];
+                System.out.print(map[i][idx] + " ");
+                dfs(start, idx, cnt + 1, sum);
+                visit[i] = false;
+                sum -= map[i][idx];
+            }
+        }
+        System.out.println();
+    }
 }

@@ -22,38 +22,38 @@ import java.util.List;
 
 //https://www.acmicpc.net/problem/5052
 public class 전화번호목록 {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringBuilder sb = new StringBuilder();
-		
-		int T = Integer.parseInt(br.readLine());
-		
-		for (int e = 0; e < T; e++) {
-			int ca = Integer.parseInt(br.readLine());
-			List<String> list = new ArrayList<>();
-			Trie t = new Trie();
-			
-			for (int i = 0; i < ca; i++) {
-				String word = br.readLine();
-				list.add(word);
-				t.insert(word);
-			}
-			
-			boolean is = false;
-			
-			for(String k : list) {
-				if(t.contains(k)) {
-					is = true;
-					break;
-				}
-			}
-			
-			sb.append((is == true) ? "NO":"YES").append("\n");
-		}
-		
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
+
+        int T = Integer.parseInt(br.readLine());
+
+        for (int e = 0; e < T; e++) {
+            int ca = Integer.parseInt(br.readLine());
+            List<String> list = new ArrayList<>();
+            Trie t = new Trie();
+
+            for (int i = 0; i < ca; i++) {
+                String word = br.readLine();
+                list.add(word);
+                t.insert(word);
+            }
+
+            boolean is = false;
+
+            for (String k : list) {
+                if (t.contains(k)) {
+                    is = true;
+                    break;
+                }
+            }
+
+            sb.append((is == true) ? "NO" : "YES").append("\n");
+        }
+
         bw.write(sb.toString());
         bw.flush();
         bw.close();
-	}
+    }
 }

@@ -13,35 +13,35 @@ import java.util.StringTokenizer;
 import org.junit.Test;
 
 public class LibraryTest {
-	
-	public static boolean[][] visited = new boolean[101][101];
-	
-	@Test
-	public void testSomeLibraryMethod() throws IOException {
-		run();
-	}
 
-	public static void run() throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int cnt = 0;
-		for(int i = 0; i < 4; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			int x1 = Integer.parseInt(st.nextToken());
-			int y1 = Integer.parseInt(st.nextToken());
-			int x2 = Integer.parseInt(st.nextToken());
-			int y2 = Integer.parseInt(st.nextToken());
-			
-			for(int j = x1; j < x2; j++) {
-				for(int k = y1; k < y2; k++) {
-					if(!visited[j][k]) {						
-						visited[j][k] = true;
-						cnt++;
-					}
-				}
-			}
-		}
-		
+    public static boolean[][] visited = new boolean[101][101];
+
+    @Test
+    public void testSomeLibraryMethod() throws IOException {
+        run();
+    }
+
+    public static void run() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int cnt = 0;
+        for (int i = 0; i < 4; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            int x1 = Integer.parseInt(st.nextToken());
+            int y1 = Integer.parseInt(st.nextToken());
+            int x2 = Integer.parseInt(st.nextToken());
+            int y2 = Integer.parseInt(st.nextToken());
+
+            for (int j = x1; j < x2; j++) {
+                for (int k = y1; k < y2; k++) {
+                    if (!visited[j][k]) {
+                        visited[j][k] = true;
+                        cnt++;
+                    }
+                }
+            }
+        }
+
         bw.write(Integer.toString(cnt));
         bw.flush();
         bw.close();

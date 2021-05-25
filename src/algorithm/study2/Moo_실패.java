@@ -10,27 +10,27 @@ import java.util.Scanner;
 //https://www.acmicpc.net/problem/5904
 
 public class Moo_실패 {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-		int n = sc.nextInt();
+        int n = sc.nextInt();
 
-		List<String> property = new ArrayList<>();
-		property.add("moo");
-		property.add("mooo");
-		property.add("moooo");
-		
-		List<String> list = new ArrayList<>();
-		list.add("moo");
-		list.add("moomooomoo");
-		list.add("moomooomoomoooomoomooomoo"); 
+        List<String> property = new ArrayList<>();
+        property.add("moo");
+        property.add("mooo");
+        property.add("moooo");
 
-		int len = list.get(list.size()-1).length();
-		
-		while(n > len) {
-			
-		}
-		
-		
-	}
+        List<String> list = new ArrayList<>();
+        list.add("moo");
+        list.add("moomooomoo");
+        list.add("moomooomoomoooomoomooomoo");
+
+        int len = list.get(list.size() - 1).length();
+
+        while (n > len) {
+
+        }
+
+
+    }
 }

@@ -23,22 +23,22 @@ public class SerialNumber {
         @Override
         public int compare(String o1, String o2) {
 
-            if(o1.length() == o2.length()) {
+            if (o1.length() == o2.length()) {
                 int a_sum = 0;
                 int b_sum = 0;
-                for(int i = 0; i < o1.length(); i++) {
+                for (int i = 0; i < o1.length(); i++) {
                     int c1 = o1.charAt(i) - '0';
                     int c2 = o2.charAt(i) - '0';
-                    if(c1 >= 1 && c1 <= 9) a_sum += c1;
+                    if (c1 >= 1 && c1 <= 9) a_sum += c1;
 
-                    if(c2 >= 1 && c2 <= 9) b_sum += c2;
+                    if (c2 >= 1 && c2 <= 9) b_sum += c2;
                 }
 
-                if(a_sum == b_sum) {
-                    for(int i = 0; i < o1.length(); i++) {
-                        if(o1.charAt(i) > o2.charAt(i)){
+                if (a_sum == b_sum) {
+                    for (int i = 0; i < o1.length(); i++) {
+                        if (o1.charAt(i) > o2.charAt(i)) {
                             return 1;
-                        }else if(o1.charAt(i) <o2.charAt(i)) {
+                        } else if (o1.charAt(i) < o2.charAt(i)) {
                             return -1;
                         }
                     }
@@ -50,12 +50,13 @@ public class SerialNumber {
             return o1.length() - o2.length();
         }
     };
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
 
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             list.add(br.readLine());
         }
 
