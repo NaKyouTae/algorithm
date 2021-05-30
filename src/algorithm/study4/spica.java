@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class spica {
     public static int[] map;
-    public static int ans = 0, first = 0;
+    public static int ans = 0;
     public static List<List<Integer>> list = new ArrayList<>();
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,10 +24,21 @@ public class spica {
             list.get(s).add(e);
             map[e]++;
         }
-
+        for(int i = 0; i < list.size(); i++) {
+        	for(int j = 0; j < list.get(i).size(); j++) {
+        		System.out.println(i + " , " + j + " : " + list.get(i).get(j) + " cnt : " + map[i]);
+        	}
+        }
         for(int i = 0; i < map.length; i++) {
             if(map[i] == 2) {
-                if(list.get(i).size() == 1) ans = i;
+                if(list.get(i).size() == 1) {
+                	int check = list.get(i).get(0);
+                    if(list.get(check).size() == 0) {
+                    	System.out.println(list.get(i).get(0));
+                        ans = i;
+                        break;
+                    }
+                }
             }
         }
 
