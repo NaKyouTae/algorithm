@@ -22,24 +22,31 @@ public class spica {
             int s = Integer.parseInt(st.nextToken());
             int e = Integer.parseInt(st.nextToken());
             list.get(s).add(e);
+            list.get(e).add(s);
             map[e]++;
         }
+
         for(int i = 0; i < list.size(); i++) {
+            System.out.printf(i + " : ");
         	for(int j = 0; j < list.get(i).size(); j++) {
-        		System.out.println(i + " , " + j + " : " + list.get(i).get(j) + " cnt : " + map[i]);
+                System.out.printf(list.get(i).get(j) + " ");
         	}
+            System.out.println();
         }
-        for(int i = 0; i < map.length; i++) {
-            if(map[i] == 2) {
-                if(list.get(i).size() == 1) {
-                	int check = list.get(i).get(0);
-                    if(list.get(check).size() == 0) {
-                    	System.out.println(list.get(i).get(0));
-                        ans = i;
-                        break;
-                    }
+
+
+        for(int i = 0; i < list.size(); i++) {
+            int cnt = 0;
+
+            if(list.get(i).size() == 3) {
+                for(int j = 0; j < 3; j++) {
+                    if(list.get(list.get(i).get(j)).size() == 3) cnt++;
+                    if(list.get(list.get(i).get(j)).size() == 2) cnt++;
+                    if(list.get(list.get(i).get(j)).size() == 1) cnt++;
                 }
             }
+
+            if(cnt == 3) ans = i;
         }
 
         System.out.println(ans);
