@@ -40,14 +40,14 @@ public class touringIecture {
         Map<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-            int p = Integer.parseInt(st.nextToken());
             int d = Integer.parseInt(st.nextToken());
+            int p = Integer.parseInt(st.nextToken());
 
 //            list.add(new Node(p, d));
             if(!map.containsKey(d)) {
                 map.put(d, p);
             }else {
-                map.put(d, Math.max(map.get(d), p));
+                map.put(d , Math.max(map.get(d), p));
             }
         }
 
