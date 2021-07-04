@@ -18,7 +18,7 @@ import java.util.PriorityQueue;
 
 //https://www.acmicpc.net/problem/11000
 
-public class 강의실배정 {
+public class   강의실배정 {
     public static class Node {
         int x, y;
 
