@@ -10,9 +10,22 @@ import java.util.stream.Collectors;
 
 public class Test1 {
     public static void main(String[] args) {
+        int[] s = new int[]{10, 20, 30};
+
+        int[] a = {10, 20, 30};
+
+        int[] b;
+        b = new int[]{10, 20, 30};
+
+        getName((int) 2682);
+
         int[] p = {13000, 88000, 10000};
         int[] d = {30, 20};
         System.out.println(solution(p, d));
+    }
+
+    public static String getName(long phone) {
+        return "";
     }
 
     public static Comparator<Integer> compare = new Comparator<>() {
