@@ -1,32 +1,62 @@
 package algorithm.programmers.level2;
 
-/**
- * 땅따 먹기
+import java.util.Stack;
+
+/** 
+ * 올바른 괄호
  * */
 public class Study11 {
     public static void main(String[] args) {
-        int[][] land = {{1,2,3,5},{5,6,7,8},{4,3,2,1}};
-        int res = Integer.MIN_VALUE;
-        for(int i = 1; i < land.length; i++) {
-            for (int j = 0; j < land[0].length; j++) {
-                int max = Integer.MIN_VALUE;
-                for (int k = 0; k < land[0].length; k++) {
-                    if(j == k) continue;
-                    max = Math.max(max, land[i][j] + land[i-1][k]);
-                }
-                System.out.println(i + " : " + j + " : " + max);
-                land[i][j] = max;
-                res = Math.max(res, max);
+//        "()()"	true
+//        "(())()"	true
+//        ")()("	false
+//        "(()("	false
+//        String s = "()()";
+//        String s = "(())()";
+//        String s = ")()(";
+        String s = "(()(";
+        problem1(s);
+        problem2(s);
+    }
+
+    public static void problem1(String s) {
+        char firstChar = s.charAt(0);
+        char lastChar = s.charAt(s.length()-1);
+
+        if(firstChar == ')' || lastChar == '(') System.out.println(false);
+
+        Stack<Character> stc = new Stack<>();
+
+        for(int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if(c == '(') {
+                stc.push(c);
+            }else {
+                if(stc.isEmpty()) System.out.println(false);
+
+                stc.pop();
             }
         }
 
-        for(int i = 0; i < land.length; i++) {
-            for (int j = 0; j < land[0].length; j++) {
-                System.out.print(land[i][j] + " ");
+        System.out.println((!stc.isEmpty()) ? false : true);
+    }
+
+    public static void problem2 (String s) {
+        if(s.charAt(0) == ')') System.out.println(false);
+
+        int basketCount = 0;
+
+        for(int i = 0; i < s.length(); i++) {
+            char b = s.charAt(i);
+
+            if(b == '(') {
+                basketCount++;
+            }else {
+                if(basketCount <= 0) System.out.println(false);
+                basketCount--;
             }
-            System.out.println();
         }
 
-        System.out.println(res);
+        System.out.println((basketCount > 0) ? false : true);
     }
 }
