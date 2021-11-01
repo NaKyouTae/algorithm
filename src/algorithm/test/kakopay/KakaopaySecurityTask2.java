@@ -38,12 +38,20 @@ import java.util.*;
 // 1,0,0,0,0,0,1,2,0,0,0,0,3,0,2,0,9,0,0,0,0,0,3,0,5,4,0,0,1,0,2,3,0,0,6
 // 출력 : 28
 
-// 추가 케이스
+// 추가 케이스 1
 // 입력 :
 // 3
 // 3
 // 1,2,3,10,5,6,7,10,9
 // 출력 : 39
+
+// 추가 케이스 2
+// 입력 :
+// 3
+// 3
+// 1,2,3,6,5,10,9,10,7
+// 출력 : 39
+
 public class KakaopaySecurityTask2 {
     private static int[][] map;
     private static int X, Y, prodSum, neoSum;
